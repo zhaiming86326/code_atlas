@@ -1,0 +1,23 @@
+spring:
+  config:
+    import: optional:file:./config/local.yml,optional:file:./backend/config/local.yml,optional:file:./config/models.yml,optional:file:./backend/config/models.yml
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/code_atlas}
+    username: ${DB_USER:code_atlas}
+    password: ${DB_PASSWORD:change-me}
+    hikari:
+      maximum-pool-size: 5
+      connection-init-sql: SET statement_timeout = '15s'
+  sql:
+    init:
+      mode: never
+code-atlas:
+  demo-mode: false
+
+# Provider libraries may log request bodies on malformed replies; use our sanitized audit records.
+logging:
+  level:
+    org.springframework.ai: 'OFF'
+
+    com.codeatlas.service.ModelService: ${CODE_ATLAS_LOG_LEVEL:INFO}
+    com.codeatlas.service.RagService: ${CODE_ATLAS_LOG_LEVEL:INFO}

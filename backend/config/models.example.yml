@@ -1,0 +1,19 @@
+# Copy to models.yml (ignored, outside JAR). Restart after editing secrets.
+# Base URLs INCLUDE /v1 when required by your provider.
+code-atlas:
+  models:
+    llm:
+      base-url: ${LLM_BASE_URL:https://api.openai.com/v1}
+      model: ${LLM_MODEL:}
+      api-key: ${LLM_API_KEY:}
+      input-price-per-million: ${LLM_INPUT_PRICE:}
+      output-price-per-million: ${LLM_OUTPUT_PRICE:}
+      price-basis: 未配置，费用未知（USD）
+    embedding:
+      base-url: ${EMBEDDING_BASE_URL:https://api.openai.com/v1}
+      model: ${EMBEDDING_MODEL:}
+      api-key: ${EMBEDDING_API_KEY:}
+      dimensions: ${EMBEDDING_DIMENSIONS:1536}
+      revision: ${EMBEDDING_REVISION:1}
+      input-price-per-million: ${EMBEDDING_INPUT_PRICE:}
+      price-basis: 未配置，费用未知（USD）

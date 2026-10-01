@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    default: postgres
+  application:
+    name: code-atlas-server
+  jackson:
+    default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 3MB
+
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  port: ${SERVER_PORT:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+code-atlas:
+  demo-mode: ${CODE_ATLAS_DEMO_MODE:true}
+

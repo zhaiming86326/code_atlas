@@ -1,0 +1,39 @@
+### Java ###
+backend/target/
+backend/.mvn/apache-maven-*/
+*.log
+
+### Node ###
+frontend/node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+### IDE / OS ###
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+### Local configuration ###
+.env
+.env.local
+
+# External local JDBC secrets (never packaged)
+backend/config/local.yml
+backend/config/models.yml
+
+# Local env variants, secret backups, keys and database exports
+**/.env.*
+!**/.env.example
+backend/config/local.*
+backend/config/models.*
+!backend/config/models.example.yml
+*.pem
+*.key
+*.p12
+*.pfx
+*.dump
+*.backup
+*.sqlite
+*.db

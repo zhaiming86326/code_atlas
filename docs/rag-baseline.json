@@ -1,0 +1,7 @@
+[
+ {"question":"Java 21 虚拟线程适用于什么场景？","technology":"Java","version":"21","expect":"有证据时回答并引用，否则说明不足"},
+ {"question":"不存在的 AtlasUnknownApi 如何调用？","expect":"INSUFFICIENT，不编造 API"},
+ {"question":"虚拟线程在不同 Java 版本中的限制有哪些？","technology":"Java","version":"","expect":"多版本证据出现时 CLARIFY_VERSION"},
+ {"question":"给出 Class.forName 的来源代码示例","technology":"Java","version":"21","expect":"引用代码来源，区分来源示例与 AI 示例，未执行验证"},
+ {"question":"比较 Spring Boot 与 Quarkus 的适用场景","expect":"事实有引用，观点/推断注明；缺少双方证据时说明不足，不编造性能比较"}
+]

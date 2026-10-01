@@ -1,0 +1,16 @@
+#!/bin/sh
+# Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements.
+set -e
+MVNW_VERSION="3.9.11"
+BASE_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+MAVEN_HOME="$BASE_DIR/.mvn/apache-maven-$MVNW_VERSION"
+ARCHIVE="$BASE_DIR/.mvn/apache-maven-$MVNW_VERSION-bin.tar.gz"
+if [ ! -x "$MAVEN_HOME/bin/mvn" ]; then
+  mkdir -p "$BASE_DIR/.mvn"
+  URL="https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/$MVNW_VERSION/apache-maven-$MVNW_VERSION-bin.tar.gz"
+  if command -v curl >/dev/null 2>&1; then curl -fsSL "$URL" -o "$ARCHIVE"; else wget -q "$URL" -O "$ARCHIVE"; fi
+  tar -xzf "$ARCHIVE" -C "$BASE_DIR/.mvn"
+  rm -f "$ARCHIVE"
+fi
+exec "$MAVEN_HOME/bin/mvn" "$@"
+
